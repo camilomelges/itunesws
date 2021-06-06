@@ -1,0 +1,15 @@
+stages:
+  - iTunesWs
+  - saveDataApi
+
+ITunesWs Pipeline:
+  stage: iTunesWs
+  trigger:
+    include: itunesws/.gitlab-ci.yml
+    strategy: depend
+
+SaveDataApi Pipeline:
+  stage: saveDataApi
+  trigger:
+    include: savedataapi/.gitlab-ci.yml
+    strategy: depend

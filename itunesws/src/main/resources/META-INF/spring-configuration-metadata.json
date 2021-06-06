@@ -1,0 +1,119 @@
+{
+  "properties": [
+    {
+      "name": "itunesws.properties.server.port",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.server.port."
+    },
+    {
+      "name": "itunesws.properties.server.error.includeStacktrace",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.server.error.includeStacktrace."
+    },
+    {
+      "name": "itunesws.properties.server.error.whitelabel.enabled",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.server.error.whitelabel.enabled."
+    },
+    {
+      "name": "itunesws.properties.logging.level.web",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.logging.level.web."
+    },
+    {
+      "name": "itunesws.properties.spring.main.allowBeanDefinitionOverriding",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.spring.main.allowBeanDefinitionOverriding."
+    },
+    {
+      "name": "itunesws.properties.spring.devtools.addProperties",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.spring.devtools.addProperties."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.host",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.host."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.port",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.port."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.username",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.username."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.password",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.password."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.image.name",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.image.name."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.image.version",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.image.version."
+    },
+    {
+      "name": "itunesws.properties.utils.rabbitmq.queues.iTunesSaveDataQueue.name",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.utils.rabbitmq.queues.iTunesSaveDataQueue.name."
+    },
+    {
+      "name": "spring.rabbitmq.queues.iTunesSaveDataQueue.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.rabbitmq.queues.iTunesSaveDataQueue.name."
+    },
+    {
+      "name": "itunesws.properties.auth.basic.username",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.auth.basic.username."
+    },
+    {
+      "name": "itunesws.properties.auth.basic.password",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.auth.basic.password."
+    },
+    {
+      "name": "itunesws.properties.cors.allowedOrigins",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.cors.allowedOrigins."
+    },
+    {
+      "name": "itunesws.properties.cors.allowedMethods",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.cors.allowedMethods."
+    },
+    {
+      "name": "itunesws.properties.cors.allowedHeaders",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.cors.allowedHeaders."
+    },
+    {
+      "name": "itunesws.properties.itunesApi.protocol",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.itunesApi.protocol."
+    },
+    {
+      "name": "itunesws.properties.itunesApi.url",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.itunesApi.url."
+    },
+    {
+      "name": "itunesws.properties.swagger.enabled",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.swagger.enabled."
+    },
+    {
+      "name": "itunesws.properties.swagger.paths",
+      "type": "java.lang.String",
+      "description": "Description for itunesws.properties.swagger.paths."
+    }
+  ]
+}

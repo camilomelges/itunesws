@@ -1,0 +1,57 @@
+variables:
+  PROJECT_NAME: itunesws
+
+before_script:
+  - cd $PROJECT_NAME
+
+stages:
+  - tests
+  - maven-build-n-deploy
+  - docker-build-n-deploy
+
+maven:test:
+  stage: tests
+  script:
+    - mvn test
+  except:
+    - pushes
+
+maven-build-n-deploy-actual:
+  stage: maven-build-n-deploy
+  script:
+    - mvn clean package -DskipTests=true
+    - mvn deploy -DskipTests=true -s ci_settings.xml
+  except:
+    - pushes
+
+maven-build-n-deploy-latest:
+  stage: maven-build-n-deploy
+  script:
+    - mvn clean versions:set -DnewVersion=latest
+    - mvn clean package -DskipTests=true
+    - mvn deploy -DskipTests=true -s ci_settings.xml
+  except:
+    - pushes
+
+docker-build-n-publish-actual:
+  stage: docker-build-n-deploy
+  script:
+    - TAG_VERSION=$(mvn help:evaluate -DskipTests=true -Dexpression=project.version -q -DforceStdout | grep -v '\[')
+    - docker build --build-arg PROJECT_VERION=$TAG_VERSION --build-arg PROJECT_CI_JOB_TOKEN=$CI_JOB_TOKEN --build-arg PROJECT_CI_SERVER_URL=$CI_SERVER_URL --build-arg PROJECT_CI_PROJECT_ID=$CI_PROJECT_ID -t $DOCKER_HUB_ORGANIZATION_NAME/$PROJECT_NAME:$TAG_VERSION .
+    - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+    - docker push $DOCKER_HUB_ORGANIZATION_NAME/$PROJECT_NAME:$TAG_VERSION
+  except:
+    - pushes
+
+docker-build-n-publish-latest:
+  stage: docker-build-n-deploy
+  variables:
+    TAG_VERSION: latest
+  script:
+    - docker build --build-arg PROJECT_VERION=$TAG_VERSION --build-arg PROJECT_CI_JOB_TOKEN=$CI_JOB_TOKEN --build-arg PROJECT_CI_SERVER_URL=$CI_SERVER_URL --build-arg PROJECT_CI_PROJECT_ID=$CI_PROJECT_ID -t $DOCKER_HUB_ORGANIZATION_NAME/$PROJECT_NAME:$TAG_VERSION .
+  after_script:
+    - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+    - docker push $DOCKER_HUB_ORGANIZATION_NAME/$PROJECT_NAME:$TAG_VERSION
+  except:
+    - pushes
+  
